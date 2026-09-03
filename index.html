@@ -197,7 +197,7 @@
   .hero h1{font-size:clamp(40px, 5.4vw, 68px); font-weight:600; line-height:1.02;}
   .hero h1 span{display:block; color:var(--accent); font-style:italic; font-weight:500;}
   .hero-role{font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--muted); margin-top:18px; letter-spacing:0.02em;}
-  .hero-desc{margin-top:22px; font-size:17px; color:var(--text-soft); max-width:520px;}
+  .hero-desc{margin-top:22px; font-size:17px; color:var(--text-soft); max-width:520px; text-align:justify; text-align-last:left; hyphens:auto;}
   .hero-actions{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
   .btn{
     font-family:'IBM Plex Mono',monospace;
@@ -245,7 +245,7 @@
 
   /* ---------- About ---------- */
   .about-body{display:grid; grid-template-columns: 0.9fr 1.1fr; gap:56px; align-items:start;}
-  .about-body p{font-size:17px; color:var(--text-soft);}
+  .about-body p{font-size:17px; color:var(--text-soft); text-align:justify; text-align-last:left; hyphens:auto;}
   .about-facts{border-top:1px solid var(--border);}
   .fact-row{display:flex; justify-content:space-between; gap:16px; padding:14px 0; border-bottom:1px solid var(--border); font-size:14px;}
   .fact-row dt{font-family:'IBM Plex Mono',monospace; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; font-size:12px;}
@@ -266,6 +266,8 @@
   .proj-card{border:1px solid var(--border); background:var(--surface); padding:36px; display:grid; grid-template-columns: 260px 1fr; gap:36px; box-shadow:var(--shadow);}
   .proj-meta h3{font-size:21px; font-weight:600; margin-bottom:10px;}
   .proj-tag{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--accent2); border:1px solid var(--accent2); display:inline-block; padding:4px 9px; margin-top:14px;}
+  .proj-link{font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:600; color:var(--accent); text-decoration:none; display:inline-flex; align-items:center; gap:5px; margin-top:16px; border-bottom:1px solid transparent; transition:border-color .15s ease;}
+  .proj-link:hover{border-bottom-color:var(--accent);}
   .proj-list{list-style:none; margin:0; padding:0; display:grid; gap:14px;}
   .proj-list li{position:relative; padding-left:22px; font-size:15px; color:var(--text-soft);}
   .proj-list li::before{content:"→"; position:absolute; left:0; top:0; color:var(--accent); font-family:'IBM Plex Mono',monospace;}
@@ -614,10 +616,10 @@
           <span class="exp-date">Feb 2026 — Jun 2026</span>
         </div>
         <ul class="exp-list">
-          <li>Supported logistics operations by encoding customer location data into Excel, keeping <b>order and delivery records</b> accurate and current.</li>
+          <li>Maintained data integrity by encoding customer locations into Excel, keeping <b>order and delivery records</b> accurate.</li>
           <li>Standardized and cleaned <b>40,000+ logistics records</b>, validating entries against source documents to improve reporting reliability.</li>
-          <li>Assisted with <b>SAP data extraction</b> under supervisor guidance, then used <b>Power Query</b> to clean, transform, and consolidate datasets for reporting.</li>
-          <li>Built an <b>MIS ticketing report dashboard</b> in Excel, tracking <b>1,000+ ticket records</b> by department and issue type (e.g., MIGO Transactions, Change Management) to <b>surface recurring issue patterns</b> and support management in reducing repeat incidents.</li>
+          <li>Executed <b>SAP data extraction</b> under supervisor guidance, then used <b>Power Query</b> to clean, transform, and consolidate datasets for reporting.</li>
+          <li>Designed and developed an <b>MIS ticketing report dashboard</b> in Excel, tracking <b>1,000+ ticket records</b> by department and issue type (e.g., MIGO Transactions, and Change Management Issues) to <b>surface recurring issue patterns</b> and support management in reducing repeat incidents.</li>
           <li>Engineered interactive <b>Power BI dashboards</b> to monitor sales metrics and KPIs, giving stakeholders visibility into trends and performance gaps.</li>
           <li>Queried <b>PostgreSQL</b> databases with <b>SQL</b> to extract and transform operational data for management reporting.</li>
           <li>Grouped and standardized <b>material descriptions across the company's spare parts catalog</b>, reducing duplicate and inconsistent entries to improve data consistency across records.</li>
@@ -636,14 +638,27 @@
       </div>
       <div class="proj-card reveal">
         <div class="proj-meta">
-          <h3>Sales &amp; Performance Analytics Dashboard</h3>
+          <h3>Sales Performance Analytics Dashboard</h3>
           <p style="color:var(--muted); font-size:14px;">Independent Project</p>
-          <span class="proj-tag">Power BI · SQL · Excel</span>
+          <span class="proj-tag">Power BI · DAX · Excel</span>
+          <a class="proj-link" href="https://github.com/DACutie/Sales-Project/tree/main/Sales-Performance-Analytics" target="_blank" rel="noopener">View on GitHub ↗</a>
         </div>
         <ul class="proj-list">
-          <li>Cleaned and structured raw business data into analysis-ready spreadsheets using <b>Power Query and Excel</b>.</li>
-          <li>Designed interactive <b>Power BI and Excel dashboards</b> with dynamic KPI cards to track revenue trends, regional performance, and product KPIs.</li>
-          <li>Wrote <b>SQL queries</b> using JOINs, subqueries, and CTEs to structure business data for analysis.</li>
+          <li>Built a <b>4-page interactive Power BI dashboard</b> (Executive Overview, Profitability &amp; Discounts, Channel &amp; Rep Performance, Fulfillment &amp; Returns) analyzing a <b>12,000-record, 3-year transactional sales dataset</b> across regions, categories, and channels.</li>
+          <li>Authored <b>10+ DAX measures</b> (Total Sales, Profit Margin %, Return Rate %, Avg Order Value, YoY Growth, Cumulative Sales %) and a custom Date table to power dynamic, cross-filtered KPI cards and trend visuals.</li>
+          <li>Designed <b>dual-axis combo charts</b>, a <b>Pareto analysis</b> of sales by rep, a discount-vs-margin scatter plot, and a geographic sales map to surface performance drivers.</li>
+          <li>Applied rule-based <b>conditional formatting</b> to flag underperforming product categories by profit margin, translating raw data into an at-a-glance risk view for stakeholders.</li>
+          <li>Identified that <b>Q4 promotional discounting eroded profit margin</b> despite a revenue spike, and that specific product categories carried disproportionately high return rates — insights suited to inform discount and QA policy.</li>
+        </ul>
+      </div>
+      <div class="proj-card reveal" style="margin-top:24px;">
+        <div class="proj-meta">
+          <h3>Group Academic Projects</h3>
+          <p style="color:var(--muted); font-size:14px;">Team Collaboration</p>
+          <span class="proj-tag">Trello · Asana</span>
+        </div>
+        <ul class="proj-list">
+          <li>Managed <b>project timelines and deliverables</b> using <b>Trello and Asana</b> during group academic projects, keeping collaborative deliverables organized and submitted on schedule.</li>
         </ul>
       </div>
     </div>
@@ -676,9 +691,9 @@
           </div>
         </div>
         <div class="skill-group">
-          <h4>Productivity &amp; AI Tools</h4>
+          <h4>Productivity, Collaboration &amp; AI Tools</h4>
           <div class="chips">
-            <span class="chip">ChatGPT</span><span class="chip">Gemini</span><span class="chip">Claude</span><span class="chip">Records Management</span><span class="chip">Attention to Detail</span>
+            <span class="chip">ChatGPT</span><span class="chip">Gemini</span><span class="chip">Claude</span><span class="chip">Trello</span><span class="chip">Asana</span><span class="chip">Records Management</span><span class="chip">Attention to Detail</span>
           </div>
         </div>
       </div>
@@ -691,7 +706,7 @@
       <div class="section-head reveal">
         <p class="eyebrow" style="color:var(--accent-soft);">Try It</p>
         <h2 style="color:#fff;">Query the résumé like a database.</h2>
-        <p style="color:var(--panel-text-soft); max-width:560px; margin-top:14px; font-size:15px;">A small SQL-style console over Lord's actual résumé data. Run a preset query below, or write your own — supports <span style="color:#fff;">SELECT ... FROM ... WHERE ...</span> against skills, experience, projects, certifications, education, and contact.</p>
+        <p style="color:var(--panel-text-soft); max-width:560px; margin-top:14px; font-size:15px; text-align:justify; text-align-last:left; hyphens:auto;">A small SQL-style console over Lord's actual résumé data. Run a preset query below, or write your own — supports <span style="color:#fff;">SELECT ... FROM ... WHERE ...</span> against skills, experience, projects, certifications, education, and contact.</p>
       </div>
       <div class="console-card reveal">
         <div class="console-head">
@@ -895,9 +910,9 @@
       { id:'experience', k:['experience','intern','internship','stc','packaging','work history','job history','previous job'],
         a:["Lord completed a Data Analyst Intern role at STC Packaging Solutions (Feb–Jun 2026), where he standardized 40,000+ logistics records, built Power BI dashboards, queried PostgreSQL with SQL, and cut report generation time by about 40% through automation.",
            "His most recent role was Data Analyst Intern at STC Packaging Solutions, covering everything from data cleaning and SAP extraction to Power BI dashboards and a 40% cut in report turnaround time."] },
-      { id:'project', k:['project','projects','independent project','sales dashboard','portfolio project'],
-        a:["His independent project is a Sales & Performance Analytics Dashboard, built with Power BI, Excel, and SQL — covering ETL with Power Query, JOINs/subqueries/CTEs, and dynamic KPI cards for revenue and regional performance.",
-           "Outside his internship, Lord built a Sales & Performance Analytics Dashboard end-to-end — Power Query for ETL, SQL for structuring the data, and Power BI for the final dashboard."] },
+      { id:'project', k:['project','projects','independent project','sales dashboard','portfolio project','dax','power bi project'],
+        a:["His independent project is a 4-page Power BI dashboard analyzing a 12,000-record, 3-year sales dataset — built with 10+ DAX measures, a custom Date table, Pareto and scatter analysis, and conditional formatting to flag underperforming categories. It surfaced insights like Q4 discounting eroding margin despite a revenue spike.",
+           "Outside his internship, Lord built a Sales Performance Analytics Dashboard end-to-end in Power BI — 10+ DAX measures, dual-axis combo charts, a geographic sales map, and a Pareto analysis of sales by rep, covering a 12,000-record, 3-year transactional dataset."] },
       { id:'education', k:['education','school','degree','college','university','dyci','studied','graduate'],
         a:["Lord holds a Bachelor of Science in Information Technology (BSIT) from Dr. Yanga's Colleges, Inc. (DYCI), 2022–2026."] },
       { id:'cert', k:['certification','certifications','cert','certs','mos','microsoft office specialist'],
@@ -907,6 +922,9 @@
       { id:'ai', k:['ai tool','chatgpt','gemini','claude','automation tool','artificial intelligence'],
         a:["Lord uses AI tools — ChatGPT, Gemini, and Claude — to speed up formula building and documentation, which helped cut report generation time by roughly 40% during his internship.",
            "He builds AI tools into his workflow (ChatGPT, Gemini, Claude) mainly to speed up repetitive Excel/documentation work — that's part of what got report turnaround down by ~40%."] },
+      { id:'pm', k:['trello','asana','project management','task management','collaborate','collaboration tool','organize tasks'],
+        a:["From his college days, Lord has used Trello and Asana to organize tasks, track work progress, and collaborate with group members on projects.",
+           "For task organization and team collaboration, Lord has hands-on experience with Trello and Asana, going back to group project work in college."] },
       { id:'dataentry', k:['data entry','encoding','logistics record','order record'],
         a:["On the data-entry side, Lord encoded customer location data for order/delivery coordination and standardized 40,000+ logistics records, validating entries against source documents."] },
       { id:'spareparts', k:['spare part','material description','catalog','duplicate entries'],
@@ -1097,6 +1115,8 @@
         {skill:'PostgreSQL', category:'database'},
         {skill:'Database Management', category:'database'},
         {skill:'ChatGPT / Gemini / Claude', category:'ai_tools'},
+        {skill:'Trello', category:'ai_tools'},
+        {skill:'Asana', category:'ai_tools'},
         {skill:'Attention to Detail', category:'ai_tools'}
       ],
       experience:[
@@ -1105,7 +1125,8 @@
         {task:'Report turnaround improvement', metric:40, unit:'percent'}
       ],
       projects:[
-        {name:'Sales & Performance Analytics Dashboard', tools:'Power BI, Excel, SQL', type:'independent'}
+        {name:'Sales Performance Analytics Dashboard', tools:'Power BI, DAX, Excel', records:12000, dax_measures:10, type:'independent'},
+        {name:'Group Academic Projects', tools:'Trello, Asana', type:'team collaboration'}
       ],
       certifications:[
         {name:'Microsoft Office Specialist (MOS): Excel Associate', year:2019}
@@ -1172,6 +1193,7 @@
     }
 
     function formatCell(val){
+      if(val === undefined || val === null) return '—';
       if(typeof val === 'number') return val.toLocaleString('en-US');
       return String(val);
     }
